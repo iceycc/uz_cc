@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>我家怎么装</title>
   <link rel="stylesheet" href="css/reset_m.css">
-  <link rel="stylesheet" href="css/reset_m.css">
   <link rel="stylesheet" href="css/result.css">
+  <link rel="stylesheet" href="css/lib/swiper-4.1.6.min.css">
 </head>
 <body>
 <!--banner-->
@@ -20,17 +20,68 @@
     <p class="second-text">根据"小道消息"有 <span>60%</span> 的中国用户</p>
     <p>选择了此风格</p>
   </div>
-  <!--swiper-->
   <div class="swiper-container">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">slider1</div>
-      <div class="swiper-slide">slider2</div>
-      <div class="swiper-slide">slider3</div>
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
     </div>
+    <!-- 如果需要分页器 -->
+    <div class="swiper-pagination"></div>
+
   </div>
 </div>
 <div class="main">
-
+  <div class="main-box">
+    <div class="title">您的半包装修预算约</div>
+    <p class="sub-pay">55877元</p>
+    <ul class="pay-detail clearfix">
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
+    </ul>
+    <div class="btn">
+      <a href="javascript:;" class="re-choose">重新选择</a>
+      <a href="javascript:;" class="to-more">了解更多</a>
+    </div>
+  </div>
 </div>
 <!--底部111-->
 <div class="footer">
@@ -40,9 +91,32 @@
 </div>
 
 <script src="js/lib/zepto/zepto.min.js"></script>
-<script src="js/lib/swiper/swiper.min.js"></script>
+<script src="js/lib/swiper/swiper-4.1.6.min.js"></script>
 <script src="js/lib/flexible/flexible_css.js"></script>
 <script src="js/lib/flexible/flexible.js"></script>
 <script src="js/index.js"></script>
+<script>
+  var mySwiper = new Swiper ('.swiper-container', {
+    // autoplay: true,//可选选项，自动滑动
+    direction: 'horizontal',
+    loop: true,
+
+    // 如果需要分页器
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    // 如果需要前进后退按钮
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
+
+    // 如果需要滚动条
+    // scrollbar: {
+    //   // el: '.swiper-scrollbar',
+    // },
+  })
+</script>
 </body>
 </html>

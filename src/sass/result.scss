@@ -1,0 +1,74 @@
+
+body{
+  background: #7ad5fe;
+}
+
+/* top */
+.top{
+  width: 100%;
+  height: (793rem/75);
+  background: url("../images/top_bg_2_01.png") no-repeat 0 0;
+  background-size: cover;
+  .logo{
+    padding-top:(15rem/75);
+    padding-left: (10rem/75);
+    a{
+      display: block;
+      width: (201rem / 75);
+      height: (69rem / 75);
+      background:url("../images/top_logo.png") no-repeat 0 0;
+      background-size: contain;
+      font-size: 0;
+    }
+  }
+  .house-style{
+    text-align: center;
+    p:nth-child(1){
+
+    }
+    p:nth-child(2){
+      font-family: "Microsoft YaHei",sans-serif;
+      font-weight: bold;
+    }
+    p:nth-child(3){
+
+    }
+  }
+  .swiper-container {
+    width: 600px;
+    height: 300px;
+  }
+}
+.main{
+
+  width: 100%;
+  height: (848rem/75);
+  background: url("../images/top_bg_2_02.png") no-repeat 0 0;
+  background-size: cover;
+  vertical-align: middle;
+
+
+}
+
+
+.footer{
+  padding-top:(27rem/75);
+  padding-bottom:(20rem/75);
+  text-align: center;
+  p{
+    padding-bottom: (10rem/75);
+    padding-bottom: (10rem/75);
+  }
+  .text{
+    font-size: (26rem/75);
+    color:#fff;
+  }
+  .tel{
+    font-size: (34rem/75);
+    color: #fff600;
+  }
+  img{
+    width: (304rem/75);
+    height: (47rem/75);
+  }
+}

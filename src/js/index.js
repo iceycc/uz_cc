@@ -24,7 +24,7 @@ $(function () {
         strObj.data = res.data.data
         var jsonStr = JSON.stringify(strObj)
         window.localStorage.setItem('uzhuang_infos', jsonStr)
-        // window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
+        window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
       },
       error: function (err) {
         console.log(err)
@@ -39,43 +39,48 @@ $(function () {
 
 var one2two = function () {
   $(".screen1-checked").on("click", function () {
-    $('.screen1').fadeOut()
-    $('.screen2').fadeIn()
+    $(this).addClass("active").siblings("div").removeClass("active")
+    $('.screen1').fadeOut(1000,function () {
+      $('.screen2').fadeIn()
+    })
     strObj.new_old = $(this).data('new_old')
-
-    // strObj.push({
-    //   new_old:$(this).data('new_old')
-    // })
-    console.log(strObj)
-
   })
   $(".screen2 .left").on('click', function () {
-    $('.screen1').fadeIn()
-    $('.screen2').fadeOut()
+    $('.screen2').fadeOut(500,function () {
+      $('.screen1').fadeIn()
+    })
   })
 }
 var two2three = function () {
   $(".screen2-checked").on("click", function () {
-    $('.screen2').fadeOut()
-    $('.screen3').fadeIn()
+    $(this).addClass("active").siblings("div").removeClass("active")
+    $('.screen2').fadeOut(1000,function () {
+      $('.screen3').fadeIn()
+    })
     strObj.room_num = $(this).data('room_num')
     console.log(strObj)
   })
   $(".screen3 .left").on('click', function () {
-    $('.screen2').fadeIn()
-    $('.screen3').fadeOut()
+    $('.screen3').fadeOut(500,function () {
+      $('.screen2').fadeIn()
+    })
+
   })
 }
 var thrree2four = function () {
   $(".screen3-checked").on("click", function () {
-    $('.screen3').fadeOut()
-    $('.screen4').fadeIn()
+    $(this).addClass("active").siblings("div").removeClass("active")
+    $('.screen3').fadeOut(1000,function () {
+      $('.screen4').fadeIn()
+    })
     strObj.style = $(this).data('style')
     console.log(strObj)
   })
   $(".screen4 .left").on('click', function () {
-    $('.screen3').fadeIn()
-    $('.screen4').fadeOut()
+    $('.screen4').fadeOut(500,function () {
+      $('.screen3').fadeIn()
+    })
+
   })
 }
 
@@ -115,8 +120,14 @@ var checkSingUpForms = function(_this,PARENTS) {
     _this.parents(PARENTS).find(".area").focus();
     return false;
   }
+  var numRef = /^\d{1,6}$/
+  var mianji = _this.parents(PARENTS).find(".area").val()
+  if(!numRef.test(mianji)){
+    promptText("面积必须为纯数字！");
+    _this.parents(PARENTS).find(".name").focus();
+    return false;
+  }
   // 姓名
-  console.log(_this.parents(PARENTS).find(".name").val())
   if (_this.parents(PARENTS).find(".name").val() == '' || _this.parents(PARENTS).find(".name").val() == '请输入您的姓名') {
     promptText("您的称呼不能为空！");
     _this.parents(PARENTS).find(".name").focus();

@@ -89,6 +89,18 @@ body {
         width: 3.76rem;
         height: 2.94667rem;
         vertical-align: top; }
+      .middle-box .house-box > div.active p:before {
+        position: absolute;
+        left: 20%;
+        top: 50%;
+        margin-top: -0.2rem;
+        display: block;
+        content: '';
+        width: 0.37333rem;
+        height: 0.37333rem;
+        border: 1px solid #ccc;
+        border-radius: 0.18667rem;
+        background-color: red; }
       .middle-box .house-box > div p {
         position: relative;
         font-size: 0.24rem;
@@ -154,6 +166,7 @@ body {
     border-radius: 0.13333rem;
     box-shadow: 0.02667rem 0.05333rem 0.02667rem #e6e5e5; }
   .screen4 .input-box select {
+    color: #676767;
     appearance: none;
     -moz-appearance: none;
     /* Firefox */

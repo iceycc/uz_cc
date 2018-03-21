@@ -73,10 +73,19 @@ body {
   background-size: cover;
   vertical-align: middle;
   .main-box{
+    display: block;
     position: absolute;
     width: (603rem/75);
     left: (49rem/75);
     top: (25rem/75);
+  }
+  .center-img{
+    position: absolute;
+    left:(338rem/75);
+    top: (160rem/75);
+    width:(20rem/75);
+    height: (529rem/75);
+    z-index: 100;
   }
   .title{
     margin: 0 auto;

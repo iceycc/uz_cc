@@ -3,35 +3,40 @@ $(function () {
   one2two()
   two2three()
   thrree2four()
-//
-  $(".info-submit").on("click", function (e) {
-    e.preventDefault();
+  // jiaoyan()
+  var subForm = true;
+  submitSingForm(function (_this) {
 
-
+    if(!subForm){
+      return false;
+    }
     var data = $('#form-1').serialize()
     var str = ''
     var url = ' http://m.uzhuang.com/api/calculator.php?action=details'
     $.ajax({
-      url:url,
-      type:"post",
-      data:data,
+      url: url,
+      type: "post",
+      data: data,
       contentType: "application/x-www-form-urlencoded",
-      dataType : "json",
+      dataType: "json",
       success: function (res) {
+        console.log('请求成功')
         strObj.data = res.data.data
-        var jsonStr =JSON.stringify(strObj)
-        window.localStorage.setItem('uzhuang_infos',jsonStr)
-        window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
+        var jsonStr = JSON.stringify(strObj)
+        window.localStorage.setItem('uzhuang_infos', jsonStr)
+        // window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
       },
       error: function (err) {
         console.log(err)
 
       }
     })
+
+
+    subForm = false;
   })
 })
 
-// 1 screen1中点击 跳转下一模块
 var one2two = function () {
   $(".screen1-checked").on("click", function () {
     $('.screen1').fadeOut()
@@ -73,13 +78,78 @@ var thrree2four = function () {
     $('.screen4').fadeOut()
   })
 }
-var end_1 = function () {
-  $(".screen4-checked").on("click", function () {
-    $('.screen4').fadeOut()
-    $('.screen5').fadeIn()
-  })
-  $(".screen5 .left").on('click', function () {
-    $('.screen4').fadeIn()
-    $('.screen5').fadeOut()
-  })
+
+
+//前端校验
+var submitSingForm = function(fn) {
+  //报名提交
+  $('.info-submit').on('click', function (e) {
+    e.preventDefault();
+    if(checkSingUpForms($(this), '.form')) {
+      fn&&fn($(this));
+    }
+  });
+}
+
+var promptTextTimers;
+function promptText(text) {
+  console.log(text)
+  $(".err").text(text)
+  // $(el).parent().css('backgroundColor','red');
+  clearTimeout(promptTextTimers);
+  promptTextTimers = setTimeout(function () {
+    $('.err').text('');
+    //console.log(1)
+  },1500);
+}
+//input 验证
+var checkSingUpForms = function(_this,PARENTS) {
+  if (_this.parents(PARENTS).find("._city").val() == 0) {
+    promptText("请选择所在城市！");
+    return false;
+  }
+  // 面积
+  console.log(_this.parents(PARENTS))
+  if (_this.parents(PARENTS).find(".area").val() == '' || _this.parents(PARENTS).find(".area").val() == '请输入您的房屋面积') {
+    promptText("面积不能为空！");
+    _this.parents(PARENTS).find(".area").focus();
+    return false;
+  }
+  // 姓名
+  console.log(_this.parents(PARENTS).find(".name").val())
+  if (_this.parents(PARENTS).find(".name").val() == '' || _this.parents(PARENTS).find(".name").val() == '请输入您的姓名') {
+    promptText("您的称呼不能为空！");
+    _this.parents(PARENTS).find(".name").focus();
+    return false;
+  }
+  var reg = /^[\u4E00-\u9FA5]+$/;
+  var name = _this.parents(PARENTS).find(".name").val();
+  if (!reg.test(name)) {
+    promptText("称呼必须是中文！");
+    _this.parents(PARENTS).find(".name").focus();
+    return false;
+  }
+  if (_this.parents(PARENTS).find(".name").val().replace(/[^x00-xff]/g, "**").length > 20) {
+    promptText("称呼保持在10个字以内！");
+    _this.parents(PARENTS).find(".name").focus();
+    return false;
+  }
+  if (_this.parents(PARENTS).find(".mobile").val() == '' || _this.parents(PARENTS).find(".name").val() == '请输入您的电话') {
+    promptText("您的电话不能为空！");
+    _this.parents(PARENTS).find(".mobile").focus();
+    return false;
+  } else {
+    var tel = /^1[3|4|5|7|8|9][0-9]\d{8}$/;
+    if (!tel.test(_this.parents(PARENTS).find(".mobile").val())) {
+      promptText("您的电话输入有误，请重新填写！");
+      _this.parents(PARENTS).find(".mobile").focus();
+      return false;
+    }
+  }
+
+  // if(!_this.parents(PARENTS).find(".deft_agre_state").prop('checked')){
+  //   promptText("请认真阅读用户协议，如已阅读请勾选！");
+  //   return false;
+  // }
+  return true;
 }

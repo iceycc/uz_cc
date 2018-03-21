@@ -1,7 +1,6 @@
 $(function () {
   //  获取参数中的参数
   var data = JSON.parse(window.localStorage.getItem("uzhuang_infos"))
-  console.log(data)
   var uz_style ='中式/新古典';
   var uz_style_range = '60%';
   if(data && data.style){
@@ -24,11 +23,11 @@ $(function () {
         break
     }
   }
+
   var liHtml = ''
   var total = null
   $("#uz-style").html(uz_style)
   $.each(data.data,function (item,index) {
-    console.log(index)
     var this_total = Math.floor(index.total)
     total += this_total -0
     liHtml +=  "      <li class=\"pay-infos\">\n" +
@@ -36,7 +35,6 @@ $(function () {
         "        <p class=\"room-pay\">￥"+this_total+"</p>\n" +
         "      </li>"
   })
-
   $("#uz-style-range").html(uz_style_range)
   $("#sub-pay-total").html(total+"元")
   $("#pay-detail-ul").html(liHtml)
@@ -44,5 +42,7 @@ $(function () {
     window.localStorage.clear('uzhuang_infos')
     window.location.href = "http://m.uzhuang.com/mobile/activity/my_home/index.html"
   })
+
+  //
 })
 

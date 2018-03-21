@@ -145,7 +145,16 @@ body{
 }
 .screen4{
   .form{
+    position: relative;
     margin-top: (87rem/75);
+  }
+  .err{
+    position: absolute;
+    left: 0;
+    top: -(50rem/75);
+    color: red;
+    width: 100%;
+    text-align: center;
   }
   .input-box{
     position: relative;

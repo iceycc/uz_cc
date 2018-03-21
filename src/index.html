@@ -89,10 +89,12 @@
       <div class="nav-ball left"><img src="./images/arr_left.png" alt=""></div>
       <div class="nav-ball right"><img src="./images/ball_r04.png" alt=""></div>
       <h3 class="title">填写完整信息，获取更准确的结果</h3>
+
       <form class="form" id="form-1">
+        <p class="err"></p>
         <div class="input-box">
           <span class="input-name">所在城市</span>
-          <select name="city" id="select-01">
+          <select name="city" id="select-01" class="_city">
             <option value="0">请选择城市</option>
             <option value="beijing">北京</option>
             <option value="shanghai">上海</option>
@@ -113,15 +115,15 @@
         </div>
         <div class="input-box">
           <span class="input-name" >房屋面积</span>
-          <input type="number" class="input" placeholder="请输入您的房屋面积" name="area" min="1" max="10">
+          <input type="text" class="area" placeholder="请输入您的房屋面积" name="area">
         </div>
         <div class="input-box">
           <span class="input-name">您的姓名</span>
-          <input type="text" class="input" placeholder="请输入您的姓名" name="name">
+          <input type="text" class="name" placeholder="请输入您的姓名" name="name">
         </div>
         <div class="input-box">
           <span class="input-name">您的手机</span>
-          <input type="number" class="input" placeholder="15621185521" name="mobile" min="11" max="11">
+          <input type="text" class="mobile" placeholder="请输入您的电话" name="mobile">
         </div>
         <button type="submit" class="info-submit">马上获得完整报价</button>
       </form>
@@ -140,6 +142,10 @@
 <script src="js/lib/swiper/swiper.min.js"></script>
 <script src="js/lib/flexible/flexible_css.js"></script>
 <script src="js/lib/flexible/flexible.js"></script>
+
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+
 <script src="js/index.js"></script>
 </body>
 </html>

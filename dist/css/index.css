@@ -118,7 +118,16 @@ body {
   box-shadow: 0.08rem 0.08rem 0.08rem #dedede outset; }
 
 .screen4 .form {
+  position: relative;
   margin-top: 1.16rem; }
+
+.screen4 .err {
+  position: absolute;
+  left: 0;
+  top: -0.66667rem;
+  color: red;
+  width: 100%;
+  text-align: center; }
 
 .screen4 .input-box {
   position: relative;

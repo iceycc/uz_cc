@@ -11,10 +11,6 @@ $(function () {
     var data = $('#form-1').serialize()
     var str = ''
     var url = ' http://m.uzhuang.com/api/calculator.php?action=details'
-    $.each(strObj,function (key,item) {
-      str += key + "=" + item + "&"
-    })
-
     $.ajax({
       url:url,
       type:"post",
@@ -22,15 +18,10 @@ $(function () {
       contentType: "application/x-www-form-urlencoded",
       dataType : "json",
       success: function (res) {
-        console.log(res)
-        $.each(res.data.data,function (key,item) {
-          str +=key +"="+  Math.floor(item.total) + "&"
-        })
-        str=str.substring(0,str.length-1)
-        console.log(str)
-        window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html?'+str
-
-
+        strObj.data = res.data.data
+        var jsonStr =JSON.stringify(strObj)
+        window.localStorage.setItem('uzhuang_infos',jsonStr)
+        window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
       },
       error: function (err) {
         console.log(err)

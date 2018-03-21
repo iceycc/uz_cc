@@ -16,8 +16,8 @@
   </div>
   <!---->
   <div class="house-style">
-    <p class="first-text">你选择了<span>中式/新古典</span>风格</p>
-    <p class="second-text">根据"小道消息"有 <span>60%</span> 的中国用户</p>
+    <p class="first-text">你选择了<span id="uz-style">中式/新古典</span>风格</p>
+    <p class="second-text">根据"小道消息"有 <span id="uz-style-range">60%</span> 的中国用户</p>
     <p>选择了此风格</p>
   </div>
   <div class="swiper-container">
@@ -34,8 +34,8 @@
 <div class="main">
   <div class="main-box">
     <div class="title">您的半包装修预算约</div>
-    <p class="sub-pay">55877元</p>
-    <ul class="pay-detail clearfix">
+    <p class="sub-pay" id="sub-pay-total">55877元</p>
+    <ul class="pay-detail clearfix" id="pay-detail-ul">
       <li class="pay-infos">
         <p class="room">主卧</p>
         <p class="room-pay">￥5303</p>
@@ -78,8 +78,8 @@
       </li>
     </ul>
     <div class="btn">
-      <a href="javascript:;" class="re-choose">重新选择</a>
-      <a href="javascript:;" class="to-more">了解更多</a>
+      <a href="javascript:;" class="re-choose" id="re-choose">重新选择</a>
+      <a href="http://m.uzhuang.com/index.php" class="to-more">了解更多</a>
     </div>
   </div>
 </div>
@@ -94,28 +94,16 @@
 <script src="js/lib/swiper/swiper-4.1.6.min.js"></script>
 <script src="js/lib/flexible/flexible_css.js"></script>
 <script src="js/lib/flexible/flexible.js"></script>
-<script src="js/index.js"></script>
+<script src="js/result.js"></script>
 <script>
   var mySwiper = new Swiper ('.swiper-container', {
     // autoplay: true,//可选选项，自动滑动
     direction: 'horizontal',
     loop: true,
-
     // 如果需要分页器
     pagination: {
       el: '.swiper-pagination',
     },
-
-    // 如果需要前进后退按钮
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
-
-    // 如果需要滚动条
-    // scrollbar: {
-    //   // el: '.swiper-scrollbar',
-    // },
   })
 </script>
 </body>

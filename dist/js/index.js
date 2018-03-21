@@ -5,35 +5,38 @@ $(function () {
   thrree2four()
   // jiaoyan()
   var subForm = true;
-  submitSingForm(function (_this) {
 
-    if(!subForm){
-      return false;
-    }
-    var data = $('#form-1').serialize()
-    var str = ''
-    var url = ' http://m.uzhuang.com/api/calculator.php?action=details'
-    $.ajax({
-      url: url,
-      type: "post",
-      data: data,
-      contentType: "application/x-www-form-urlencoded",
-      dataType: "json",
-      success: function (res) {
-        console.log('请求成功')
-        strObj.data = res.data.data
-        var jsonStr = JSON.stringify(strObj)
-        window.localStorage.setItem('uzhuang_infos', jsonStr)
-        window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
-      },
-      error: function (err) {
-        console.log(err)
 
+  $(".input-box").find("input").blur(function () {
+    submitSingForm(function () {
+      if(!subForm){
+        return false;
       }
+      var data = $('#form-1').serialize()
+      console.log(data)
+      var url = ' http://m.uzhuang.com/api/calculator.php?action=details'
+      $.ajax({
+        url: url,
+        type: "post",
+        data: data,
+        contentType: "application/x-www-form-urlencoded",
+        dataType: "json",
+        success: function (res) {
+          console.log('请求成功')
+          strObj.data = res.data.data
+          var jsonStr = JSON.stringify(strObj)
+          window.localStorage.setItem('uzhuang_infos', jsonStr)
+          window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
+        },
+        error: function (err) {
+          console.log(err)
+
+        }
+      })
+
+
+      subForm = false;
     })
-
-
-    subForm = false;
   })
 })
 
@@ -114,7 +117,6 @@ var checkSingUpForms = function(_this,PARENTS) {
     return false;
   }
   // 面积
-  console.log(_this.parents(PARENTS))
   if (_this.parents(PARENTS).find(".area").val() == '' || _this.parents(PARENTS).find(".area").val() == '请输入您的房屋面积') {
     promptText("面积不能为空！");
     _this.parents(PARENTS).find(".area").focus();

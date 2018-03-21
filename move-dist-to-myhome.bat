@@ -1,0 +1,1 @@
+xcopy /s/e/y D:\myWork\uzhuang\uzhuang_cc\dist D:\myWork\uzhuang\m\mobile\www\mobile\activity\my_home

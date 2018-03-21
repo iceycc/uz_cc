@@ -26,11 +26,11 @@
       <div class="nav-ball right"><img src="./images/ball_r01.png" alt=""></div>
       <h3 class="title">请选择您的房屋类型</h3>
       <div class="clearfix house-box">
-        <div class="l screen1-checked">
+        <div class="l screen1-checked" data-new_old="newHouse">
           <img src="./images/huose_new.png" alt="">
           <p>新房装修</p>
         </div>
-        <div class="l screen1-checked">
+        <div class="l screen1-checked" data-new_old="oldHouse">
           <img src="./images/house_old.png" alt="">
           <p>旧房改造</p>
         </div>
@@ -42,19 +42,19 @@
       <div class="nav-ball right"><img src="./images/ball_r02.png" alt=""></div>
       <h3 class="title">请选择您的房屋类型</h3>
       <div class="clearfix house-box">
-        <div class="l screen2-checked">
+        <div class="l screen2-checked" data-room_num="""1">
           <img src="./images/home_1.png" alt="">
           <p>一局</p>
         </div>
-        <div class="l screen2-checked">
+        <div class="l screen2-checked" data-room_num="2">
           <img src="./images/home_2.png" alt="">
           <p>二局</p>
         </div>
-        <div class="l screen2-checked">
+        <div class="l screen2-checked" data-room_num="3">
           <img src="./images/home_3.png" alt="">
           <p>三局</p>
         </div>
-        <div class="l screen2-checked">
+        <div class="l screen2-checked" data-room_num="4">
           <img src="./images/home_4.png" alt="">
           <p>四局</p>
         </div>
@@ -66,19 +66,19 @@
       <div class="nav-ball right"><img src="./images/ball_r03.png" alt=""></div>
       <h3 class="title">请选择您喜欢的装修风格</h3>
       <div class="clearfix house-box">
-        <div class="l screen3-checked">
+        <div class="l screen3-checked" data-style="om">
           <img src="./images/pic_om.png" alt="">
           <p>欧式/美式</p>
         </div>
-        <div class="l screen3-checked">
+        <div class="l screen3-checked" data-style="zx">
           <img src="./images/pic_zx.png" alt="">
           <p>中式/新古典</p>
         </div>
-        <div class="l screen3-checked">
+        <div class="l screen3-checked" data-style="xj">
           <img src="./images/pic_xj.png" alt="">
           <p>现代/极简</p>
         </div>
-        <div class="l screen3-checked">
+        <div class="l screen3-checked" data-style="rd">
           <img src="./images/pic_rd.png" alt="">
           <p>日式/东南亚</p>
         </div>
@@ -89,25 +89,42 @@
       <div class="nav-ball left"><img src="./images/arr_left.png" alt=""></div>
       <div class="nav-ball right"><img src="./images/ball_r04.png" alt=""></div>
       <h3 class="title">填写完整信息，获取更准确的结果</h3>
-      <div class="form">
+      <form class="form" id="form-1">
         <div class="input-box">
           <span class="input-name">所在城市</span>
-          <input type="text" class="input" placeholder="请选择城市">
+          <select name="city" id="select-01">
+            <option value="0">请选择城市</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="guangzhou">广州</option>
+            <option value="shenzhen">深圳</option>
+            <option value="hangzhou">杭州</option>
+            <option value="tianjing">天津</option>
+            <option value="xian">西安</option>
+            <option value="nanjing">南京</option>
+            <option value="wuhan">武汉</option>
+            <option value="zhengzhou">郑州</option>
+            <option value="chengdu">成都</option>
+            <option value="huizhou">惠州</option>
+            <option value="qingdao">青岛</option>
+            <option value="dalian">大连</option>
+          </select>
+          <!--<input type="text" class="input" placeholder="请选择城市">-->
         </div>
         <div class="input-box">
           <span class="input-name">房屋面积</span>
-          <input type="text" class="input" placeholder="请输入您的房屋面积">
+          <input type="text" class="input" placeholder="请输入您的房屋面积" name="area">
         </div>
         <div class="input-box">
           <span class="input-name">您的姓名</span>
-          <input type="text" class="input" placeholder="请输入您的姓名">
+          <input type="text" class="input" placeholder="请输入您的姓名" name="name">
         </div>
         <div class="input-box">
           <span class="input-name">您的手机</span>
-          <input type="text" class="input" placeholder="请输入您的手机号">
+          <input type="text" class="input" placeholder="请输入您的手机号" name="mobile">
         </div>
-        <div class="info-submit">马上获得完整报价</div>
-      </div>
+        <button type="submit" class="info-submit">马上获得完整报价</button>
+      </form>
 
     </li>
 

@@ -160,7 +160,7 @@ body{
       font-size: (26rem/75);
       color:#3e3e3e
     }
-    input{
+    input,select{
       display: inline-block;
       width: (460rem/75);
       height: 100%;
@@ -172,6 +172,14 @@ body{
       border: (2rem/75) solid #e6e5e5;
       border-radius: (10rem/75);
       box-shadow: (2rem/75) (4rem/75) (2rem/75) #e6e5e5;
+    }
+    select{
+      //position:relative;
+      //z-index:1;
+      appearance:none;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari 和 Chrome */
+
     }
     &::after{
       position: absolute;
@@ -187,6 +195,8 @@ body{
   }
   // 11
   .info-submit{
+    display: block;
+    border: none;
     margin: (73rem/75) auto 0;
     width: (500rem/75);
     height: (75rem/75);

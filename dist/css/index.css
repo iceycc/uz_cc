@@ -132,7 +132,7 @@ body {
     text-align: center;
     font-size: 0.34667rem;
     color: #3e3e3e; }
-  .screen4 .input-box input {
+  .screen4 .input-box input, .screen4 .input-box select {
     display: inline-block;
     width: 6.13333rem;
     height: 100%;
@@ -144,6 +144,12 @@ body {
     border: 0.02667rem solid #e6e5e5;
     border-radius: 0.13333rem;
     box-shadow: 0.02667rem 0.05333rem 0.02667rem #e6e5e5; }
+  .screen4 .input-box select {
+    appearance: none;
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari 和 Chrome */ }
   .screen4 .input-box::after {
     position: absolute;
     content: '';
@@ -156,6 +162,8 @@ body {
     background-size: cover; }
 
 .screen4 .info-submit {
+  display: block;
+  border: none;
   margin: 0.97333rem auto 0;
   width: 6.66667rem;
   height: 1rem;

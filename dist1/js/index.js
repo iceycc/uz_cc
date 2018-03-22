@@ -12,8 +12,15 @@ $(function () {
     showTime : 1000,
     hideTime : 500
   }
+  // activeImg()
+  // jiaoyan()
+
+  //
+
+
+  // $(".screen2 .active").find("img").attr("src","")
   doFormCheckSubmit()
-  $(".input-box").find("img").on("change",function () {
+  $(".input-box").find("change").blur(function () {
     doFormCheckSubmit()
   })
 })

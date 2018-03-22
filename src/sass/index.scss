@@ -1,5 +1,8 @@
-html, body {
+html{
   height: 100%;
+}
+ body {
+  height: (1336rem/75);
 }
 
 body {
@@ -202,14 +205,7 @@ body {
     position: relative;
     margin-top: (87rem/75);
   }
-  //.err {
-  //  position: absolute;
-  //  left: 0;
-  //  top: -(50rem/75);
-  //  color: red;
-  //  width: 100%;
-  //  text-align: center;
-  //}
+
   .input-box {
     position: relative;
     margin-bottom: (40rem/75);
@@ -239,7 +235,6 @@ body {
     select {
       //position:relative;
       //z-index:1;ccc
-      color: #676767;
       appearance: none;
       -moz-appearance: none; /* Firefox */
       -webkit-appearance: none; /* Safari 和 Chrome */

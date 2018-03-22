@@ -12,15 +12,8 @@ $(function () {
     showTime : 1000,
     hideTime : 500
   }
-  // activeImg()
-  // jiaoyan()
-
-  //
-
-
-  // $(".screen2 .active").find("img").attr("src","")
   doFormCheckSubmit()
-  $(".input-box").find("change").blur(function () {
+  $(".input-box").find("img").on("change",function () {
     doFormCheckSubmit()
   })
 })
@@ -88,6 +81,7 @@ var two2three = function () {
   })
 }
 var thrree2four = function () {
+  doFormCheckSubmit()
   $(".screen3-checked").on("click", function () {
     $(this).addClass("active").siblings("div").removeClass("active")
     $('.screen3').fadeOut(myOptions.showTime,function () {

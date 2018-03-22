@@ -9,7 +9,6 @@ $(function () {
   var uz_style_range = '60%';
   var total = null
   var swiperImgSrc = ["zhongshi1","zhongshi2","zhongshi3"]
-
   var liHtml = '';
   var swiperHtml = '';
   if(data && data.style){
@@ -22,7 +21,7 @@ $(function () {
       case "zx":
         uz_style = '中式/新古典';
         uz_style_range = '20%';
-        swiperImgSrc = ["oushi1","oushi2","oushi3"]
+        swiperImgSrc = ["zhongshi1","zhongshi2","zhongshi3"]
         break;
       case "xj":
         uz_style = '现代/极简';

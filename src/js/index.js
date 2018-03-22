@@ -20,9 +20,8 @@ $(function () {
 
   // $(".screen2 .active").find("img").attr("src","")
   doFormCheckSubmit()
-  $(".input-box").find("input").blur(function () {
+  $(".input-box").find("change").blur(function () {
     doFormCheckSubmit()
-
   })
 })
 var doFormCheckSubmit = function () {

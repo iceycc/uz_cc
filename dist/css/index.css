@@ -91,7 +91,7 @@ body {
         vertical-align: top; }
       .middle-box .house-box > div p {
         position: relative;
-        font-size: 0.24rem;
+        font-size: 0.34667rem;
         height: 0.53333rem;
         line-height: 0.53333rem; }
         .middle-box .house-box > div p:before {
@@ -130,6 +130,18 @@ body {
   border-radius: 0.08rem;
   box-shadow: 0.08rem 0.08rem 0.08rem #dedede outset; }
 
+.screen2 .house-box .before {
+  display: inline-block; }
+
+.screen2 .house-box .after {
+  display: none; }
+
+.screen2 .active .before {
+  display: none; }
+
+.screen2 .active .after {
+  display: inline-block; }
+
 .screen3 .house-box img {
   box-sizing: border-box;
   padding: 0.13333rem;
@@ -140,14 +152,6 @@ body {
 .screen4 .form {
   position: relative;
   margin-top: 1.16rem; }
-
-.screen4 .err {
-  position: absolute;
-  left: 0;
-  top: -0.66667rem;
-  color: red;
-  width: 100%;
-  text-align: center; }
 
 .screen4 .input-box {
   position: relative;
@@ -180,16 +184,17 @@ body {
     /* Firefox */
     -webkit-appearance: none;
     /* Safari 和 Chrome */ }
-  .screen4 .input-box::after {
-    position: absolute;
-    content: '';
-    right: 0.8rem;
-    top: 0.36rem;
-    display: block;
-    width: 0.22667rem;
-    height: 0.14667rem;
-    background: url("../images/sanjiaox.png") no-repeat 0 0;
-    background-size: cover; }
+
+.screen4 .select-box::after {
+  position: absolute;
+  content: '';
+  right: 0.8rem;
+  top: 0.36rem;
+  display: block;
+  width: 0.22667rem;
+  height: 0.14667rem;
+  background: url("../images/sanjiaox.png") no-repeat 0 0;
+  background-size: cover; }
 
 .screen4 .info-submit {
   display: block;
@@ -204,6 +209,21 @@ body {
   text-align: center;
   line-height: 1rem;
   box-shadow: 0.06667rem 0.06667rem 0.06667rem #fbadad; }
+
+.screen4 .msg-info {
+  position: absolute;
+  display: none;
+  left: 50%;
+  top: 40%;
+  margin-left: -3.33333rem;
+  width: 6.66667rem;
+  height: 1.33333rem;
+  border-radius: 0.26667rem;
+  background: rgba(1, 1, 1, 0.7);
+  color: #fff;
+  font-size: 0.4rem;
+  text-align: center;
+  line-height: 1.33333rem; }
 
 .footer {
   margin-top: 0.36rem;

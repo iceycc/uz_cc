@@ -1,55 +1,73 @@
+/**
+ *@author wangbingyang
+ *@date 2018/03/22 08:58:15
+ *@desc
+ */
 $(function () {
   window.strObj = {}
   one2two()
   two2three()
   thrree2four()
+  window.myOptions = {
+    showTime : 1000,
+    hideTime : 500
+  }
+  // activeImg()
   // jiaoyan()
-  var subForm = true;
+
+  //
 
 
+  // $(".screen2 .active").find("img").attr("src","")
+  doFormCheckSubmit()
   $(".input-box").find("input").blur(function () {
-    submitSingForm(function () {
-      if(!subForm){
-        return false;
-      }
-      var data = $('#form-1').serialize()
-      console.log(data)
-      var url = ' http://m.uzhuang.com/api/calculator.php?action=details'
-      $.ajax({
-        url: url,
-        type: "post",
-        data: data,
-        contentType: "application/x-www-form-urlencoded",
-        dataType: "json",
-        success: function (res) {
-          console.log('请求成功')
-          strObj.data = res.data.data
-          var jsonStr = JSON.stringify(strObj)
-          window.localStorage.setItem('uzhuang_infos', jsonStr)
-          window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
-        },
-        error: function (err) {
-          console.log(err)
+    doFormCheckSubmit()
 
-        }
-      })
-
-
-      subForm = false;
-    })
   })
 })
+var doFormCheckSubmit = function () {
+  var subForm = true;
+  submitSingForm(function () {
+    console.log(111111)
+    if(!subForm){
+      return false;
+    }
+    var data = $('#form-1').serialize()
+    console.log(data)
+    var url = ' http://m.uzhuang.com/api/calculator.php?action=details'
+    $.ajax({
+      url: url,
+      type: "post",
+      data: data,
+      contentType: "application/x-www-form-urlencoded",
+      dataType: "json",
+      success: function (res) {
+        console.log('请求成功')
+        strObj.data = res.data.data
+        var jsonStr = JSON.stringify(strObj)
+        window.localStorage.setItem('uzhuang_infos', jsonStr)
+        window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
+      },
+      error: function (err) {
+        console.log(err)
 
+      }
+    })
+
+
+    subForm = false;
+  })
+}
 var one2two = function () {
   $(".screen1-checked").on("click", function () {
     $(this).addClass("active").siblings("div").removeClass("active")
-    $('.screen1').fadeOut(1000,function () {
+    $('.screen1').fadeOut(myOptions.showTime,function () {
       $('.screen2').fadeIn()
     })
     strObj.new_old = $(this).data('new_old')
   })
   $(".screen2 .left").on('click', function () {
-    $('.screen2').fadeOut(500,function () {
+    $('.screen2').fadeOut(myOptions.hideTime,function () {
       $('.screen1').fadeIn()
     })
   })
@@ -57,14 +75,14 @@ var one2two = function () {
 var two2three = function () {
   $(".screen2-checked").on("click", function () {
     $(this).addClass("active").siblings("div").removeClass("active")
-    $('.screen2').fadeOut(1000,function () {
+    $('.screen2').fadeOut(myOptions.showTime,function () {
       $('.screen3').fadeIn()
     })
     strObj.room_num = $(this).data('room_num')
     console.log(strObj)
   })
   $(".screen3 .left").on('click', function () {
-    $('.screen3').fadeOut(500,function () {
+    $('.screen3').fadeOut(myOptions.hideTime,function () {
       $('.screen2').fadeIn()
     })
 
@@ -73,21 +91,19 @@ var two2three = function () {
 var thrree2four = function () {
   $(".screen3-checked").on("click", function () {
     $(this).addClass("active").siblings("div").removeClass("active")
-    $('.screen3').fadeOut(1000,function () {
+    $('.screen3').fadeOut(myOptions.showTime,function () {
       $('.screen4').fadeIn()
     })
     strObj.style = $(this).data('style')
     console.log(strObj)
   })
   $(".screen4 .left").on('click', function () {
-    $('.screen4').fadeOut(500,function () {
+    $('.screen4').fadeOut(myOptions.hideTime,function () {
       $('.screen3').fadeIn()
     })
 
   })
 }
-
-
 //前端校验
 var submitSingForm = function(fn) {
   //报名提交
@@ -101,12 +117,11 @@ var submitSingForm = function(fn) {
 
 var promptTextTimers;
 function promptText(text) {
-  console.log(text)
-  $(".err").text(text)
+  $(".msg-info").fadeIn().text(text)
   // $(el).parent().css('backgroundColor','red');
   clearTimeout(promptTextTimers);
   promptTextTimers = setTimeout(function () {
-    $('.err').text('');
+    $(".msg-info").fadeOut().text('')
     //console.log(1)
   },1500);
 }

@@ -43,20 +43,27 @@
       <h3 class="title">请选择您的户型</h3>
       <div class="clearfix house-box">
         <div class="l screen2-checked" data-room_num="1">
-        <img src="./images/home_1.png" alt="">
-        <p>一居</p>
-      </div>
-      <div class="l screen2-checked" data-room_num="2">
-        <img src="./images/home_2.png" alt="">
-        <p>二居</p>
-      </div>
-      <div class="l screen2-checked" data-room_num="3">
-        <img src="./images/home_3.png" alt="">
-        <p>三居</p>
-      </div>
-      <div class="l screen2-checked" data-room_num="4">
-        <img src="./images/home_4.png" alt="">
-        <p>四居及以上</p>
+          <img src="./images/home_1_lan.png" alt="" class="before">
+          <img src="./images/home_1_zi.png" alt="" class="after">
+          <p>一居</p>
+        </div>
+        <div class="l screen2-checked" data-room_num="2">
+          <img src="./images/home_2_lan.png" alt="" class="before">
+          <img src="./images/home_2_zi.png" alt="" class="after">
+
+          <p>二居</p>
+        </div>
+        <div class="l screen2-checked" data-room_num="3">
+          <img src="./images/home_3_lan.png" alt="" class="before">
+          <img src="./images/home_3_zi.png" alt="" class="after">
+
+          <p>三居</p>
+        </div>
+        <div class="l screen2-checked" data-room_num="4">
+          <img src="./images/home_4_lan.png" alt="" class="before">
+          <img src="./images/home_4_zi.png" alt="" class="after">
+          <p>四居及以上</p>
+        </div>
       </div>
     </li>
     <!--screen3-->
@@ -90,8 +97,8 @@
       <h3 class="title">填写完整信息，获取更准确的结果</h3>
 
       <form class="form" id="form-1">
-        <p class="err"></p>
-        <div class="input-box">
+        <!--<p class="err"></p>-->
+        <div class="input-box select-box">
           <span class="input-name">所在城市</span>
           <select name="city" id="select-01" class="_city">
             <option value="0">请选择城市</option>
@@ -124,9 +131,17 @@
           <span class="input-name">您的手机</span>
           <input type="text" class="mobile" placeholder="请输入您的电话" name="mobile">
         </div>
+        <!--<div class="input-box">-->
+        <!--<span class="input-name">您的手机</span>-->
+        <!--<input type="text" class="mobile" placeholder="请输入您的电话" name="mobile">-->
+        <!--</div>-->
+        <!--<div class="input-box">-->
+        <!--<span class="input-name">您的手机</span>-->
+        <!--<input type="text" class="mobile" placeholder="请输入您的电话" name="mobile">-->
+        <!--</div>-->
         <button type="submit" class="info-submit">马上获得完整报价</button>
       </form>
-
+      <div class="msg-info"></div>
     </li>
 
   </ul>

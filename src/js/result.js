@@ -57,6 +57,7 @@ $(function () {
   $("#pay-detail-ul").html(liHtml);
   $("#re-choose").on("click",function () {
     window.localStorage.clear('uzhuang_infos')
+    window.location.href = ""
     window.location.href = "http://m.uzhuang.com/mobile/activity/my_home/index.html"
   })
 

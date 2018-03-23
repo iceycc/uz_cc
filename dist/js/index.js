@@ -4,20 +4,30 @@
  *@desc
  */
 $(function () {
-  window.strObj = {}
-  one2two()
-  two2three()
-  thrree2four()
+  window.strObj = {};
+
+  one2two();
+  two2three();
+  thrree2four();
   window.myOptions = {
     showTime : 1000,
     hideTime : 500
-  }
-  // doFormCheckSubmit()
-  $(".form-info").bind("change input propertychange blur",function (e) {
+  };
 
+  // 解析url中参数传入 隐藏域
+  var url_data=urlParam(window.location.search)
+  console.log(url_data)
+  $(".cid_id").attr("value",url_data.cid_id)
+  $(".cid_city_id").attr("value",url_data.cid_city_id)
+  $(".cid_comp_id").attr("value",url_data.cid_comp_id)
+  $(".cid_act_id").attr("value",url_data.cid_act_id)
+  //
+  doFormCheckSubmit()
+  $(".form-info").bind("change input propertychange blur",function () {
    setTimeout(function () {
      doFormCheckSubmit()
    },400)
+    $('.info-submit').off();
     $(".form-info").unbind()
   })
 
@@ -28,10 +38,11 @@ var doFormCheckSubmit = function () {
     if(!subForm){
       return false;
     }
+    console.log("准备发送ajax");
 
-    console.log("发送ajax")
-    var url = ' http://m.uzhuang.com/api/calculator.php?action=details'
-    var data = $('#form-1').serialize()
+    var url = ' http://m.uzhuang.com/api/calculator.php?action=details';
+    var data = $('#form-1').serialize();
+
     $.ajax({
       url: url,
       type: "post",
@@ -39,23 +50,32 @@ var doFormCheckSubmit = function () {
       contentType: "application/x-www-form-urlencoded",
       dataType: "json",
       success: function (res) {
-        console.log('请求成功')
-        strObj.data = res.data.data
-        var jsonStr = JSON.stringify(strObj)
-        window.localStorage.setItem('uzhuang_infos', jsonStr)
-        window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
+        strObj.data = res.data.data;
+        var jsonStr = JSON.stringify(strObj);;
+        console.log('请求成功111');
+        window.localStorage.setItem("uzhuang_infos", jsonStr);
+       setTimeout(function () {
+         window.location.href="http://m.uzhuang.com/mobile/activity/my_home/result.html"
+       },1000)
       },
       error: function (err) {
         console.log(err)
+        // window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
+
+      },
+      complete:function (data) {
+        console.log(data)
+        // window.location.href='http://m.uzhuang.com/mobile/activity/my_home/result.html'
       }
-    })
+    });
+    console.log("发送ajax成功");
 
     subForm = false;
   })
-}
+};
 var doAjax =function () {
 
-}
+};
 //防止用户频繁操作造成的过多请求
 var delay = function(send){
   //在函数内有了自己的变量和函数
@@ -77,7 +97,7 @@ var delay = function(send){
       timer = setTimeout(send,time_jiange);
     }
   }
-}
+};
 var one2two = function () {
   $(".screen1-checked").on("click", function () {
     $(this).addClass("active").siblings("div").removeClass("active")
@@ -91,7 +111,7 @@ var one2two = function () {
       $('.screen1').fadeIn()
     })
   })
-}
+};
 var two2three = function () {
   $(".screen2-checked").on("click", function () {
     $(this).addClass("active").siblings("div").removeClass("active")
@@ -107,7 +127,7 @@ var two2three = function () {
     })
 
   })
-}
+};
 var thrree2four = function () {
   doFormCheckSubmit()
   $(".screen3-checked").on("click", function () {
@@ -124,7 +144,7 @@ var thrree2four = function () {
     })
 
   })
-}
+};
 //前端校验
 var submitSingForm = function(fn) {
   //报名提交
@@ -134,7 +154,7 @@ var submitSingForm = function(fn) {
       fn&&fn($(this));
     }
   });
-}
+};
 
 var promptTextTimers;
 function promptText(text) {
@@ -199,4 +219,20 @@ var checkSingUpForms = function(_this,PARENTS) {
   //   return false;
   // }
   return true;
+};
+
+var urlParam = function (str) {
+  var obj = {};
+  var reg = /[?&][^?&]+=[^?&]+/g;
+  var arr = str.match(reg);
+
+  if (arr) {
+    arr.forEach(function (item) {
+      var tempArr = item.substring(1).split('=');
+      var key = decodeURIComponent(tempArr[0]);
+      var val = decodeURIComponent(tempArr[1]);
+      obj[key] = val;
+    });
+  }
+  return obj;
 }

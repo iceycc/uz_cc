@@ -59,55 +59,50 @@ main header > .left, main header > .right {
 main .loaders {
     width: 100%;
     box-sizing: border-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 0 1 auto;
-    flex-direction: row;
-    flex-wrap: wrap; }
+    -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
 main .loaders .loader {
     box-sizing: border-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 0 1 auto;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 0;
-    flex-basis: 25%;
+    -ms-flex: 0 1 auto;
+        flex: 0 1 auto;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-positive: 1;
+        flex-grow: 1;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -ms-flex-preferred-size: 25%;
+        flex-basis: 25%;
     max-width: 25%;
     height: 200px;
-    align-items: center;
-    justify-content: center; }
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center; }
 /*.loader{*/
     /*width: 120px;*/
     /*margin: 0 auto;*/
     /*margin-top: 55%;*/
     /*z-index: 9999999;*/
 /*}*/
-@-webkit-keyframes ball-grid-pulse {
-    0% {
-        -webkit-transform: scale(1);
-        transform: scale(1); }
-
-    50% {
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
-        opacity: 0.7; }
-
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-        opacity: 1; } }
 
 @keyframes ball-grid-pulse {
     0% {
-        -webkit-transform: scale(1);
         transform: scale(1); }
 
     50% {
-        -webkit-transform: scale(0.5);
         transform: scale(0.5);
         opacity: 0.7; }
 
     100% {
-        -webkit-transform: scale(1);
         transform: scale(1);
         opacity: 1; } }
 
@@ -116,49 +111,31 @@ main .loaders .loader {
 overflow: hidden;
 }
 .ball-grid-pulse > div:nth-child(1) {
-    -webkit-animation-delay: -0.09s;
     animation-delay: -0.09s;
-    -webkit-animation-duration: 0.81s;
     animation-duration: 0.81s; }
 .ball-grid-pulse > div:nth-child(2) {
-    -webkit-animation-delay: 0.52s;
     animation-delay: 0.52s;
-    -webkit-animation-duration: 1.12s;
     animation-duration: 1.12s; }
 .ball-grid-pulse > div:nth-child(3) {
-    -webkit-animation-delay: 0.41s;
     animation-delay: 0.41s;
-    -webkit-animation-duration: 1.57s;
     animation-duration: 1.57s; }
 .ball-grid-pulse > div:nth-child(4) {
-    -webkit-animation-delay: 0.72s;
     animation-delay: 0.72s;
-    -webkit-animation-duration: 0.73s;
     animation-duration: 0.73s; }
 .ball-grid-pulse > div:nth-child(5) {
-    -webkit-animation-delay: 0.7s;
     animation-delay: 0.7s;
-    -webkit-animation-duration: 1.45s;
     animation-duration: 1.45s; }
 .ball-grid-pulse > div:nth-child(6) {
-    -webkit-animation-delay: 0.31s;
     animation-delay: 0.31s;
-    -webkit-animation-duration: 0.86s;
     animation-duration: 0.86s; }
 .ball-grid-pulse > div:nth-child(7) {
-    -webkit-animation-delay: 0.43s;
     animation-delay: 0.43s;
-    -webkit-animation-duration: 1.5s;
     animation-duration: 1.5s; }
 .ball-grid-pulse > div:nth-child(8) {
-    -webkit-animation-delay: 0.18s;
     animation-delay: 0.18s;
-    -webkit-animation-duration: 1.35s;
     animation-duration: 1.35s; }
 .ball-grid-pulse > div:nth-child(9) {
-    -webkit-animation-delay: 0.57s;
     animation-delay: 0.57s;
-    -webkit-animation-duration: 1.4s;
     animation-duration: 1.4s; }
 .ball-grid-pulse > div {
     background-color: #e26a13;
@@ -167,14 +144,10 @@ overflow: hidden;
     float: left;
     border-radius: 100%;
     margin: 5px;
-    -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
     display: block;
-    -webkit-animation-name: ball-grid-pulse;
     animation-name: ball-grid-pulse;
-    -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
-    -webkit-animation-delay: 0;
     animation-delay: 0; }
 
 
@@ -284,7 +257,6 @@ footer{
 span,i,em,div,a,p,dl,dt,dd,ul,li{
     -webkit-touch-callout:none;
     -webkit-user-select:none;
-    -khtml-user-select:none;
     -moz-user-select:none;
     -ms-user-select:none;
     user-select:none;

@@ -22,7 +22,7 @@
 <div class="middle-box">
   <ul>
     <!--screen1-->
-    <li class="screen1">
+    <li class="screen1 display-none">
       <div class="nav-ball right"><img src="./images/ball_r01.png" alt=""></div>
       <h3 class="title">请选择您的房屋类型</h3>
       <div class="clearfix house-box">
@@ -90,8 +90,8 @@
         </div>
       </div>
     </li>
-    <!--screen3-->
-    <li class="screen4 display-none">
+    <!--screen4-->
+    <li class="screen4">
       <div class="nav-ball left"><img src="./images/arr_left.png" alt=""></div>
       <div class="nav-ball right"><img src="./images/ball_r04.png" alt=""></div>
       <h3 class="title">填写完整信息，获取更准确的结果</h3>
@@ -100,9 +100,9 @@
         <!--<p class="err"></p>-->
         <div class="input-box select-box">
           <span class="input-name">所在城市</span>
-          <select name="city" id="select-01" class="_city">
+          <select name="city" id="select-01" class="_city form-info">
             <option value="0">请选择城市</option>
-            <option value="beijing">北京</option>
+            <option value="beijing" selected>北京</option>
             <option value="shanghai">上海</option>
             <option value="guangzhou">广州</option>
             <option value="shenzhen">深圳</option>
@@ -121,15 +121,15 @@
         </div>
         <div class="input-box">
           <span class="input-name">房屋面积</span>
-          <input type="text" class="area" placeholder="请输入您的房屋面积" name="area">
+          <input type="text" class="area form-info" placeholder="请输入您的房屋面积" name="area" value="100">
         </div>
         <div class="input-box">
           <span class="input-name">您的姓名</span>
-          <input type="text" class="name" placeholder="请输入您的姓名" name="name">
+          <input type="text" class="name form-info" placeholder="请输入您的姓名" name="name" value="王冰洋">
         </div>
         <div class="input-box">
           <span class="input-name">您的手机</span>
-          <input type="text" class="mobile" placeholder="请输入您的电话" name="mobile">
+          <input type="text" class="mobile form-info" placeholder="请输入您的电话" name="mobile" value="15621185521">
         </div>
         <!--<div class="input-box">-->
         <!--<span class="input-name">您的手机</span>-->
@@ -139,7 +139,7 @@
         <!--<span class="input-name">您的手机</span>-->
         <!--<input type="text" class="mobile" placeholder="请输入您的电话" name="mobile">-->
         <!--</div>-->
-        <button type="submit" class="info-submit">马上获得完整报价</button>
+        <button class="info-submit">马上获得完整报价</button>
       </form>
       <div class="msg-info"></div>
     </li>

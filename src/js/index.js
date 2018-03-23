@@ -12,21 +12,26 @@ $(function () {
     showTime : 1000,
     hideTime : 500
   }
-  doFormCheckSubmit()
-  $(".input-box").find("img").on("change",function () {
-    doFormCheckSubmit()
+  // doFormCheckSubmit()
+  $(".form-info").bind("change input propertychange blur",function (e) {
+
+   setTimeout(function () {
+     doFormCheckSubmit()
+   },400)
+    $(".form-info").unbind()
   })
+
 })
 var doFormCheckSubmit = function () {
   var subForm = true;
   submitSingForm(function () {
-    console.log(111111)
     if(!subForm){
       return false;
     }
-    var data = $('#form-1').serialize()
-    console.log(data)
+
+    console.log("发送ajax")
     var url = ' http://m.uzhuang.com/api/calculator.php?action=details'
+    var data = $('#form-1').serialize()
     $.ajax({
       url: url,
       type: "post",
@@ -42,13 +47,36 @@ var doFormCheckSubmit = function () {
       },
       error: function (err) {
         console.log(err)
-
       }
     })
 
-
     subForm = false;
   })
+}
+var doAjax =function () {
+
+}
+//防止用户频繁操作造成的过多请求
+var delay = function(send){
+  //在函数内有了自己的变量和函数
+  //防止全局变量污染
+  var last = Date.now(); //记录一个初始时间
+  var timer;
+  var time_jiange = 100
+  // 1 2
+  return function(){
+    // 如果当前的事件差与之前的事件差大于2秒就操作
+    var current = Date.now();//当前执行时间
+    //3进来的时候，先把2清掉
+    clearTimeout(timer);
+    if((current - last) > time_jiange){
+      timer = setTimeout(send,time_jiange);
+      last = current; //记录最后一次发消息
+    }else{
+      //当前是2秒以内的重复触发
+      timer = setTimeout(send,time_jiange);
+    }
+  }
 }
 var one2two = function () {
   $(".screen1-checked").on("click", function () {
@@ -111,11 +139,9 @@ var submitSingForm = function(fn) {
 var promptTextTimers;
 function promptText(text) {
   $(".msg-info").fadeIn().text(text)
-  // $(el).parent().css('backgroundColor','red');
   clearTimeout(promptTextTimers);
   promptTextTimers = setTimeout(function () {
     $(".msg-info").fadeOut().text('')
-    //console.log(1)
   },1500);
 }
 //input 验证

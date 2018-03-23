@@ -28,7 +28,7 @@
       <!--<div class="swiper-slide"><img src="./images/zhongshi3.png" alt=""></div>-->
     </div>
     <!-- 如果需要分页器 -->
-    <!--<div class="swiper-pagination"></div>-->
+    <div class="swiper-pagination"></div>
 
   </div>
 </div>
@@ -38,6 +38,10 @@
     <div class="title">您的半包装修预算约</div>
     <p class="sub-pay" id="sub-pay-total">55877元</p>
     <ul class="pay-detail clearfix" id="pay-detail-ul">
+      <li class="pay-infos">
+        <p class="room">主卧</p>
+        <p class="room-pay">￥5303</p>
+      </li>
       <li class="pay-infos">
         <p class="room">主卧</p>
         <p class="room-pay">￥5303</p>
@@ -98,15 +102,17 @@
 <script src="js/lib/flexible/flexible.js"></script>
 <script src="js/result.js"></script>
 <script>
-  var mySwiper = new Swiper ('.swiper-container', {
-    // autoplay: true,//可选选项，自动滑动
-    direction: 'horizontal',
-    loop: true,
-    // 如果需要分页器
-    // pagination: {
-    //   el: '.swiper-pagination',
-    // },
-    // effect:"cube"
+  setTimeout(function () {
+    var mySwiper = new Swiper ('.swiper-container', {
+      // autoplay: true,//可选选项，自动滑动
+      direction: 'horizontal',
+      loop: true,
+      // 如果需要分页器
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      // effect:"cube"
+    },400)
   })
 </script>
 </body>
